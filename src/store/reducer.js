@@ -1,9 +1,12 @@
-const initialState = 0;
+import { combineReducers } from "redux";
+import cartPageSliceReducer from "./cartPage/reducer";
+import homePageSliceReducer from "./homePage/reducer";
+import productPageSliceReducer from "./productPage/reducer";
 
-export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    default: {
-      return state;
-    }
-  }
-}
+const reducer = combineReducers({
+  cartPage: cartPageSliceReducer,
+  homePage: homePageSliceReducer,
+  productPage: productPageSliceReducer
+});
+
+export default reducer;
