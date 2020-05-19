@@ -10,12 +10,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <hr></hr>
+
       <Switch>
-        <Route path="/CartPage" component={CartPage}/>
-        <Route path="/ProductPage" component={ProductPage}/>
-        <Route exact path="/" component={HomePage}/>
-      </Switch> */}
+        <Route path="/CartPage" component={CartPage} />
+        <Route path="/ProductPage" component={ProductPage} />
+        <Route exact path="/" component={HomePage} />
+      </Switch>
     </div>
   );
 }
