@@ -2,27 +2,27 @@
   "products": [
     {
       "id": 1,
-      "title": "flowers"
+      "title": "flowers",
       "categories" : "Good"
     }
     {
       "id": 2,
-      "title": "grasses"
+      "title": "grasses",
       "categories" : "Bad"
     }
     {
       "id": 3,
-      "title": "spices"
+      "title": "spices",
       "categories" : "Worse"
     }
     {
       "id": 4,
-      "title": "gums"
+      "title": "gums",
       "categories" : "Best"
     }
     {
       "id": 5,
-      "title": "balsams"
+      "title": "balsams",
       "categories" : "Mediocre"
     }
   ],
