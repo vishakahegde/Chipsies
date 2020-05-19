@@ -1,9 +1,11 @@
 import { createStore } from "redux";
 
-function reducer(state, action) {
-  return state;
-}
+import reducer from "./reducer";
 
-const store = createStore(reducer);
+const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__
+  ? window.__REDUX_DEVTOOLS_EXTENSION__()
+  : (x) => x;
+
+const store = createStore(reducer, enhancer);
 
 export default store;
