@@ -11,8 +11,6 @@
 import { combineReducers } from "redux";
 import homePageReducer from "./homePage/reducer";
 
-console.log("HomePage reducer", homePageReducer);
-
 const reducer = combineReducers({
   homePage: homePageReducer,
 });

@@ -1,4 +1,4 @@
-const initialState = require("../../../db");
+const initialState = require("../../db");
 
 export default function homePageReducer(state = initialState, action) {
   switch (action.type) {
