@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./node_modules/axios";
 import store from "..";
 
 export const fetchData = () => {

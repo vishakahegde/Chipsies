@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 // import { fetchData } from "../store/productPage/action";
 import { Link } from "react-router-dom";
+import { addToCart } from "../store/cart/action";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -57,37 +58,54 @@ export default function HomePage() {
     //   setData(newData);
     // }
   }
+  function onAddClick(product) {
+    dispatch(addToCart(product));
+    console.log("trying to add product", product);
+  }
 
   return (
     <div>
       <h1>Chips</h1>
-      <ul>
-        {data.map((product) => {
-          if (category === "All") {
-            return (
-              <div>
-                <li>Product Name: {product.title}</li>
-                <li>Price: {product.price}</li>
-                <li>Popularity: {product.popularity}</li>
+
+      {data.map((product) => {
+        if (category === "All") {
+          return (
+            <div key={product.id}>
+              <h2>Product Name: {product.title}</h2>
+              <p>
+                Price: {product.price} {" | "}
+                Popularity: {product.popularity}
+              </p>
+              <p>
                 <Link to={`/ProductPage/${product.id}`}>
                   <button>Show details</button>
-                </Link>
-              </div>
-            );
-          } else if (product.categories === category) {
-            return (
-              <div>
-                <li>Product Name: {product.title}</li>
-                <li>Price: {product.price}</li>
-                <li>Popularity: {product.popularity}</li>
+                </Link>{" "}
+                Add to cart:{" "}
+                <button onClick={() => onAddClick(product)}>+</button>
+                <button onClick={() => onAddClick(product)}>-</button>
+              </p>
+            </div>
+          );
+        } else if (product.categories === category) {
+          return (
+            <div>
+              <h2>Product Name: {product.title}</h2>
+              <p>
+                Price: {product.price} {" | "}
+                Popularity: {product.popularity}
+              </p>
+              <p>
                 <Link to={`/ProductPage/${product.id}`}>
                   <button>Show details</button>
-                </Link>
-              </div>
-            );
-          }
-        })}
-      </ul>
+                </Link>{" "}
+                Add to cart:{" "}
+                <button onClick={() => onAddClick(product)}>+</button>
+                <button onClick={() => onAddClick(product)}>-</button>
+              </p>
+            </div>
+          );
+        }
+      })}
       <button onClick={sortedByPopularity}>Sort By Popularity</button>
       <button onClick={sortByPrice}>Sort By Price</button>
       <select onChange={(event) => ProductByCategory(event.target.value)}>
