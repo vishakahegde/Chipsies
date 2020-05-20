@@ -9,9 +9,16 @@ export default function HomePage() {
   return (
     <div>
       <h1>Chips</h1>
-      {products.map((product) => {
-        return <p>{product.title}</p>;
-      })}
+      <ul>
+        {products.map((product) => {
+          return (
+            <div>
+              <li>Product Name: {product.title}</li>
+              <li>Price: {product.price}</li>
+            </div>
+          );
+        })}
+      </ul>
     </div>
   );
 }
