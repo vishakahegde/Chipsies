@@ -6,7 +6,8 @@
       "description": "Some of its medical advantages incorporate ADHD, relief from bloating, stomach infirmities and insomnia. In any case, the individuals who are allergic to ragweed are encouraged to dodge this chips.",
       "categories": "Good",
       "price": "€ 5",
-      "popularity": 4
+      "popularity": 4,
+      "image": "https://storage.needpix.com/rsynced_images/chips-2169275_1280.jpg"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "description": "5 health benefits of grass fed beef chips. Extra Omega-3. Grass fed beef contains as much as three times more Omega-3 (good fats found in oily fish) than grain fed beef. ",
       "categories": "Bad",
       "price": "€ 3",
-      "popularity": 2
+      "popularity": 2,
+      "image": "https://cdn.pixabay.com/photo/2016/08/07/22/36/crisps-1577260_960_720.jpg"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "description": "There’s no need to go on a massive hunt for exotic ingredients — some of the best spices can be found in this chips. ",
       "categories": "Worse",
       "price": "€ 6",
-      "popularity": 5
+      "popularity": 5,
+      "image": "https://c0.wallpaperflare.com/preview/795/135/728/pepperoni-paprika-fruity-hot-chili.jpg"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "description": "Sugarless mint or ginger gums of all kinds can sooth an upset stomach. If you’re looking for little ways to improve your health, try chewing this chips. You’ll thank yourself later.  ",
       "categories": "Best",
       "price": "€ 5",
-      "popularity": 1
+      "popularity": 1,
+      "image": "https://p1.pxfuel.com/preview/405/969/151/gum-tragacanth-glue-tragacanth-gum.jpg"
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "description": "Essential oil of balsam chips which also contains the healing resin—can be used as massage oil and lotion to help increase blood circulation and promote healing of sore muscles and joints.",
       "categories": "Mediocre",
       "price": "€ 3",
-      "popularity": 3
+      "popularity": 3,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Potato_chip_sandwich.jpg/800px-Potato_chip_sandwich.jpg"
     }
   ],
   "profile": {

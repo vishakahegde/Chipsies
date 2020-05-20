@@ -10,41 +10,46 @@ export default function ProductPage() {
   const [chips, setChips] = useState([]);
   const [loadingData, setLoadingData] = useState(false);
 
-  // console.log("param:", params)
+  //   console.log("param:", params)
 
   useEffect(() => {
     const fetchData = async () => {
-         setLoadingData(true);
+      setLoadingData(true);
       const data = await axios.get(
         "http://my-json-server.typicode.com/vishakahegde/Chipsies/products"
       );
-      console.log("data:", data.data);
+      //   console.log("data:", data.data);
 
-         setChips(data.data);
-         setLoadingData(false)
+      setChips(data.data);
+      setLoadingData(false);
     };
     fetchData();
   }, []);
 
-  const loading = loadingData === true ? <h1>Loading...</h1> : null
+  const filteredChips = chips.find((chip) => {
+    //   console.log("chip?", chip)
 
-  const filteredChips = chips.filter(chip => {
-      console.log("chip?", chip)
-
-    if (params === chip.title) {
-        return true
+    if (parseInt(params.productId) === chip.id) {
+      return true;
     } else {
-        return false
+      return false;
     }
-  })
-  console.log("filter ok?", filteredChips)
-  
+  });
+    console.log("filter ok?", filteredChips)
+
+  if (loadingData === true || !filteredChips) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div>
-      {filteredChips}
-      {loading}
-      
+      <h1>{filteredChips.title}</h1>
+      <p>tags: <button>{filteredChips.categories}</button>
+      <button>{filteredChips.popularity}th popular</button>
+      </p>
+      <img src={filteredChips.image} alt={filteredChips.title}/>
+      <p>{filteredChips.description}</p>
+      <h2>{filteredChips.price}</h2>
     </div>
   );
 }
