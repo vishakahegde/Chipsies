@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 // import { fetchData } from "../store/productPage/action";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -68,6 +69,7 @@ export default function HomePage() {
                 <li>Product Name: {product.title}</li>
                 <li>Price: {product.price}</li>
                 <li>Popularity: {product.popularity}</li>
+                <Link to={`/ProductPage/${product.id}`}><button>Show details</button></Link>
               </div>
             );
           } else if (product.categories === category) {
