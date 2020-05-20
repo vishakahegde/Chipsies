@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
+      <hr></hr>
       <Switch>
         <Route path="/CartPage" component={CartPage} />
         <Route path="/ProductPage/:productId" component={ProductPage} />
