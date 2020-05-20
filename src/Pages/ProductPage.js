@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 // import { useSelector } from "react-redux";
 // import {selectProduct} from "../store/productPage/selector"
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ProductPage() {
   const params = useParams();
@@ -47,9 +47,10 @@ export default function ProductPage() {
       <p>tags: <button>{filteredChips.categories}</button>
       <button>{filteredChips.popularity}th popular</button>
       </p>
-      <img src={filteredChips.image} alt={filteredChips.title}/>
+      <img width="30%" height="30%" src={filteredChips.image} alt={filteredChips.title}/>
       <p>{filteredChips.description}</p>
       <h2>{filteredChips.price}</h2>
+      <p><Link to="/">See all chipsies</Link></p>
     </div>
   );
 }
