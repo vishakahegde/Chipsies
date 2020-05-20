@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-// import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // import {selectProduct} from "../store/productPage/selector"
 import { Link } from "react-router-dom";
+import { addToCart } from "../store/cart/action";
 
 export default function ProductPage() {
+  const dispatch = useDispatch();
   const params = useParams();
   const [chips, setChips] = useState([]);
   const [loadingData, setLoadingData] = useState(false);
@@ -35,22 +37,39 @@ export default function ProductPage() {
       return false;
     }
   });
-    console.log("filter ok?", filteredChips)
+  console.log("filter ok?", filteredChips);
 
   if (loadingData === true || !filteredChips) {
     return <h1>Loading...</h1>;
   }
 
+  function onAddClick(product) {
+    dispatch(addToCart(product));
+    console.log("trying to add product", product);
+  }
+
   return (
     <div>
       <h1>{filteredChips.title}</h1>
-      <p>tags: <button>{filteredChips.categories}</button>
-      <button>{filteredChips.popularity}th popular</button>
+      <p>
+        tags: <button>{filteredChips.categories}</button>
+        <button>{filteredChips.popularity}th popular</button>
       </p>
-      <img width="30%" height="30%" src={filteredChips.image} alt={filteredChips.title}/>
+      <img
+        width="30%"
+        height="30%"
+        src={filteredChips.image}
+        alt={filteredChips.title}
+      />
       <p>{filteredChips.description}</p>
       <h2>{filteredChips.price}</h2>
-      <p><Link to="/">See all chipsies</Link></p>
+      <p>
+        Add to cart: <button onClick={() => onAddClick(filteredChips)}>+</button>
+        <button onClick={() => onAddClick(filteredChips)}>-</button>
+      </p>
+      <p>
+        <Link to="/">See all chipsies</Link>
+      </p>
     </div>
   );
 }
