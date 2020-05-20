@@ -69,7 +69,9 @@ export default function HomePage() {
                 <li>Product Name: {product.title}</li>
                 <li>Price: {product.price}</li>
                 <li>Popularity: {product.popularity}</li>
-                <Link to={`/ProductPage/${product.id}`}><button>Show details</button></Link>
+                <Link to={`/ProductPage/${product.id}`}>
+                  <button>Show details</button>
+                </Link>
               </div>
             );
           } else if (product.categories === category) {
@@ -78,6 +80,9 @@ export default function HomePage() {
                 <li>Product Name: {product.title}</li>
                 <li>Price: {product.price}</li>
                 <li>Popularity: {product.popularity}</li>
+                <Link to={`/ProductPage/${product.id}`}>
+                  <button>Show details</button>
+                </Link>
               </div>
             );
           }
