@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {useSelector} from 'react-redux'
+import { amountOfItemsInCart } from "../store/cart/selector";
 
 export default function Navbar() {
+  const amountItemsInCart = useSelector(amountOfItemsInCart);
+
   return (
     <div
       style={{
@@ -16,7 +20,7 @@ export default function Navbar() {
         Home
       </NavLink>
       <NavLink activeStyle={{ background: "lightpink" }} to="/CartPage">
-        Cart
+        Cart: {amountItemsInCart}
       </NavLink>
     </div>
   );
