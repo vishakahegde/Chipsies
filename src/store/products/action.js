@@ -1,17 +1,23 @@
-import axios from "./node_modules/axios";
-import store from "..";
+import axios from "axios";
 
-export const fetchData = () => {
-  return async (dispatch, getState) => {
+export function startLoading() {
+  return {
+    type: "startLoading"
+  };
+}
+
+export const fetchData = async (dispatch, getState) => {
+  dispatch(startLoading());
     const response = await axios.get(
       `https://my-json-server.typicode.com/vishakahegde/Chipsies/products`
     );
-    console.log("Data:", response);
-    dispatch(fetchDataSuccess(response));
+    dispatch(fetchDataSuccess(response.data));
+    console.log("Action data?", response.data)
   };
-};
+
 
 export const fetchDataSuccess = (products) => ({
-  type: "FETCH_PRODUCT",
+  type: "productsFetched",
   payload: products,
 });
+

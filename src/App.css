@@ -56,10 +56,15 @@
 }
 
 .buttons {
-  border-radius: 15px;
-  border: 1px solid lightpink;
+  border-radius: 1px;
+  border: 1px solid rgb(240, 179, 188);
   background: lightpink;
-  color: whitesmoke;
+  color: white;
   font-size: 18px;
   margin: 10px;
+  font-weight: bold;
+}
+
+a:visited {
+  color: rgb(73, 72, 72);
 }
