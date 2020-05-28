@@ -63,6 +63,16 @@ export default function HomePage() {
     console.log("trying to add product", product);
   }
 
+  const filteredProduct = data.filter(product => {
+    if (category === "All") {
+      return true
+    }
+    if (product.categories === category) {
+      return true
+    } else {
+      return false
+    }
+  })
   return (
     <div>
       <h1>Delicious Chips</h1>
@@ -80,8 +90,7 @@ export default function HomePage() {
         </select>
       </p>
       <div className="container">
-      {data.map((product) => {
-        if (category === "All") {
+      {filteredProduct.map((product) => {
           return (
             <div className="product" key={product.id}>
               <Link to={`/ProductPage/${product.id}`}>
@@ -105,25 +114,6 @@ export default function HomePage() {
               </p>
             </div>
           );
-        } else if (product.categories === category) {
-          return (
-            <div>
-              <h2>Product Name: {product.title}</h2>
-              <p>
-                Price: {product.price} {" | "}
-                Popularity: {product.popularity}
-              </p>
-              <p>
-                <Link to={`/ProductPage/${product.id}`}>
-                  <button>Show details</button>
-                </Link>{" "}
-                Add to cart:{" "}
-                <button onClick={() => onAddClick(product)}>+</button>
-                <button onClick={() => onAddClick(product)}>-</button>
-              </p>
-            </div>
-          );
-        }
       })}
       </div>
     </div>

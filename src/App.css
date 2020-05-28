@@ -54,3 +54,12 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
+
+.buttons {
+  border-radius: 15px;
+  border: 1px solid lightpink;
+  background: lightpink;
+  color: whitesmoke;
+  font-size: 18px;
+  margin: 10px;
+}
