@@ -65,11 +65,11 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Chips</h1>
+      <h1>Delicious Chips</h1>
       <p>
-        <button onClick={sortedByPopularity}>Sort By Popularity</button>
+        <button onClick={sortedByPopularity}>Sort By Popularity</button>{" "}
         <button onClick={sortByPrice}>Sort By Price</button>
-  <label> Filter by tag: </label>
+        <label> Filter by tag: </label>
         <select onChange={(event) => ProductByCategory(event.target.value)}>
           <option value="All">All</option>
           {data.map((product) => {
@@ -79,19 +79,26 @@ export default function HomePage() {
           })}
         </select>
       </p>
+      <div className="container">
       {data.map((product) => {
         if (category === "All") {
           return (
             <div className="product" key={product.id}>
-              <h2>Product Name: {product.title}</h2>
+              <Link to={`/ProductPage/${product.id}`}>
+                <h2>{product.title} chips</h2>{" "}
+              </Link>
               <p>
-                Price: {product.price} {" | "}
-                Popularity: {product.popularity}
+                <img className="img"
+                  src={product.image}
+                  alt={product.title}
+                />{" "}
               </p>
               <p>
-                <Link to={`/ProductPage/${product.id}`}>
-                  <button>Show details</button>
-                </Link>{" "}
+                <button>Popularity: {product.popularity}</button>
+                <button>Category: {product.categories}</button>
+              </p>
+              <p>Price: {product.price}</p>
+              <p>
                 Add to cart:{" "}
                 <button onClick={() => onAddClick(product)}>+</button>
                 <button onClick={() => onAddClick(product)}>-</button>
@@ -118,6 +125,7 @@ export default function HomePage() {
           );
         }
       })}
+      </div>
     </div>
   );
 }
