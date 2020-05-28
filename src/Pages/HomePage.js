@@ -66,11 +66,23 @@ export default function HomePage() {
   return (
     <div>
       <h1>Chips</h1>
-
+      <p>
+        <button onClick={sortedByPopularity}>Sort By Popularity</button>
+        <button onClick={sortByPrice}>Sort By Price</button>
+  <label> Filter by tag: </label>
+        <select onChange={(event) => ProductByCategory(event.target.value)}>
+          <option value="All">All</option>
+          {data.map((product) => {
+            return (
+              <option value={product.categories}>{product.categories}</option>
+            );
+          })}
+        </select>
+      </p>
       {data.map((product) => {
         if (category === "All") {
           return (
-            <div key={product.id}>
+            <div className="product" key={product.id}>
               <h2>Product Name: {product.title}</h2>
               <p>
                 Price: {product.price} {" | "}
@@ -106,16 +118,6 @@ export default function HomePage() {
           );
         }
       })}
-      <button onClick={sortedByPopularity}>Sort By Popularity</button>
-      <button onClick={sortByPrice}>Sort By Price</button>
-      <select onChange={(event) => ProductByCategory(event.target.value)}>
-        <option value="All">All</option>
-        {data.map((product) => {
-          return (
-            <option value={product.categories}>{product.categories}</option>
-          );
-        })}
-      </select>
     </div>
   );
 }
